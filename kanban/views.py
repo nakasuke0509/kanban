@@ -62,3 +62,11 @@ class ListCreateView(LoginRequiredMixin, CreateView):
     def form_valid(self, form):
         form.instance.user = self.request.user
         return super().form_valid(form)
+
+class ListUpdateView(LoginRequiredMixin, UpdateView):
+    model = List
+    template_name = "kanban/lists/update.html"
+    form_class = ListForm
+
+    def get_success_url(self):
+        return resolve_url('kanban:lists_detail', pk=self.kwargs['pk'])
