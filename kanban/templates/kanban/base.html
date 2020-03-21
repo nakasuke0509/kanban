@@ -12,7 +12,7 @@
   </head>
   <body>
     <header>
-      <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top"> <!-- fixed-topを追加 -->
         <a class="navbar-brand" href="{% url 'kanban:index' %}">kanban</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
@@ -22,14 +22,14 @@
           </ul>
           <ul class="navbar-nav">
             {% if request.user.is_authenticated %}
-            <span class="navbar-text">
-              こんにちは {{ request.user.username }} さん
-            </span>
             <li class="nav-item">
-              <a class="nav-link" href="{% url 'logout' %}">ログアウト</a>
+              <a class="nav-link" href="{% url 'kanban:users_detail' request.user.pk %}">{{ request.user.username }}</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="{% url 'kanban:lists_list' %}">リスト一覧</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'logout' %}">ログアウト</a>
             </li>
             {% else %}
             <li class="nav-item">

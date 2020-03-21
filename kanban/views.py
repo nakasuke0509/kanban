@@ -14,9 +14,9 @@ from .models import List, Card
 def index(request):
     return render(request, "kanban/index.html") 
 
-@login_required
-def home(request):
-    return render(request, "kanban/home.html")
+class HomeView(LoginRequiredMixin, ListView):
+    model = List
+    template_name = "kanban/home.html"
 
 def signup(request):
     if request.method == 'POST':
