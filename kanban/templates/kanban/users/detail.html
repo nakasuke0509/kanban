@@ -3,7 +3,7 @@
 {% block content %}
 <div class="container">
   <h1>ユーザー詳細</h1>
-    <dl class="row">
+  <dl class="row">
     <dt class="col-sm-3">ユーザー名</dt>
     <dd class="col-sm-9">{{ user.username }}</dd>
     <dt class="col-sm-3">姓</dt>
@@ -13,5 +13,6 @@
     <dt class="col-sm-3">メールアドレス</dt>
     <dd class="col-sm-9">{{ user.email }}</dd>
   </dl>
+  <a class="btn btn-primary" href="{% url 'kanban:users_update' user.pk  %}" role="button">編集</a>
 </div>
 {% endblock %}
