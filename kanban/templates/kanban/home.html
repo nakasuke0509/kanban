@@ -24,7 +24,7 @@ body { padding-top: 70px; }
         </div>
       </a>
       {% endfor %}
-      <a href="{% url 'kanban:cards_create' %}" class="text-dark"><i class="far fa-plus-square"></i> さらにカードを追加</a>
+      <a href="{% url 'kanban:cards_create_from_home' list.pk %}" class="text-dark"><i class="far fa-plus-square"></i> さらにカードを追加</a>
     </div>
     {% endfor %}
   </div>

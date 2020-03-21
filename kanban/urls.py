@@ -16,6 +16,7 @@ urlpatterns = [
     path("lists/<int:pk>/delete/", views.ListDeleteView.as_view(), name="lists_delete"),
     path("lists/create/", views.ListCreateView.as_view(), name="lists_create"),
     path("cards/create/", views.CardCreateView.as_view(), name="cards_create"),
+    path("cards/create/<int:list_pk>", views.CardCreateFromHomeView.as_view(), name="cards_create_from_home"),
     path("cards/", views.CardListView.as_view(), name="cards_list"),
     path("cards/<int:pk>/", views.CardDetailView.as_view(), name="cards_detail"),
     path("cards/<int:pk>/update/", views.CardUpdateView.as_view(), name="cards_update"),
